@@ -4,3 +4,4 @@
 src/test/
 target/
 /.idea/
+/.idea/compiler.xml
