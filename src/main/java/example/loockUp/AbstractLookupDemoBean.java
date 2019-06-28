@@ -1,4 +1,4 @@
-package com.apress.example;
+package example.loockUp;
 
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Component;

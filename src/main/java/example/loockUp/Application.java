@@ -1,4 +1,4 @@
-package com.apress.example;
+package example.loockUp;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
