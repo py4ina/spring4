@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="oracle"
-          name="wiseworm" class="com.apress.prospring4.ch3.BookwormOracle"/>
-
-    <bean id="injectRef" class="com.apress.prospring4.ch3.xml.InjectRef">
-        <property name="oracle">
-            <ref bean="wiseworm"/>
+    <bean id="target1" class="com.apress.prospring4.ch3.xml.SimpleTarget" p:val-ref="injectBeanParent"/>
+    <bean id="target2" class="com.apress.prospring4.ch3.xml.SimpleTarget" p:val-ref="injectBean"/>
+    <bean id="target3" class="com.apress.prospring4.ch3.xml.SimpleTarget">
+        <property name="val">
+            <ref parent="injectBean"/>
         </property>
     </bean>
+    <bean id="injectBean" class="java.lang.String" c:_0="Child In Bean"/>
 </beans>
