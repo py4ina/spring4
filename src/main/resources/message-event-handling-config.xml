@@ -4,13 +4,13 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="message" class="example.eventhanding.Message"/>
+    <bean id="message" class="example.eventhanding._1.Message"/>
 
-    <bean id="myStartEventHandler" class="example.eventhanding.MyStartEventHander"/>
-    <bean id="myStopEventHandler" class="example.eventhanding.MyStopEventHandler"/>
-    <bean id="myCloseEventHandler" class="example.eventhanding.MyCloseEventHandler"/>
-    <bean id="myRefreshEventHandler" class="example.eventhanding.MyRefreshEventHandler"/>
+    <bean id="myStartEventHandler" class="example.eventhanding._1.MyStartEventHander"/>
+    <bean id="myStopEventHandler" class="example.eventhanding._1.MyStopEventHandler"/>
+    <bean id="myCloseEventHandler" class="example.eventhanding._1.MyCloseEventHandler"/>
+    <bean id="myRefreshEventHandler" class="example.eventhanding._1.MyRefreshEventHandler"/>
 
-    <!--<bean id="EmailService" class="example.eventhanding.EmailService"/>-->
+    <!--<bean id="EmailService" class="example.eventhanding._1.EmailService"/>-->
     <context:component-scan base-package="example"/>
 </beans>
