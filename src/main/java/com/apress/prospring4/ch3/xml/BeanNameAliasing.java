@@ -2,6 +2,8 @@ package com.apress.prospring4.ch3.xml;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
+import java.util.List;
+
 public class BeanNameAliasing {
     public static void main(String[] args) {
         GenericXmlApplicationContext context = new GenericXmlApplicationContext();
@@ -20,5 +22,8 @@ public class BeanNameAliasing {
         System.out.println(s3 == s4);
         System.out.println(s4 == s5);
         System.out.println(s5 == s6);
+
+        String[] strings = context.getAliases("name1");
+        System.out.println(strings);
     }
 }
