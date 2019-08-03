@@ -2,7 +2,8 @@ package com.apress.prospring4.ch3.xml;
 
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import java.util.List;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 public class BeanNameAliasing {
     public static void main(String[] args) {
@@ -16,6 +17,14 @@ public class BeanNameAliasing {
         String s4 = (String) context.getBean("name4");
         String s5 = (String) context.getBean("name5");
         String s6 = (String) context.getBean("name6");
+
+        try {
+            InitialContext initialContext = new InitialContext();
+            String s = (String) initialContext.lookup("java:app/META-INF/spring/app-context-xml.xml.name6");
+            System.out.println(s);
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
 
         System.out.println(s1 == s2);
         System.out.println(s2 == s3);
