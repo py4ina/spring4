@@ -7,6 +7,7 @@
     <!--<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
     <context:annotation-config/>
 
+    <bean class="example.quoters.ProfilingHandlerBeanPostProcessor"/>
     <bean class="example.quoters.InjectRandomIntAnnotationBeanPostProcessor"/>
 
     <bean class="example.quoters.TerminatorQuoter" id="terminatorQuoter">
