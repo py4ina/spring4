@@ -13,8 +13,12 @@ public class DeprecationHandlerBeanFactoryPostProcessor implements BeanFactoryPo
             BeanDefinition beanDefinition = beanFactory.getBeanDefinition(name);
             String beanClassName = beanDefinition.getBeanClassName();
             try {
-                Class.forName(beanClassName);
-            } catch (ClassNotFoundException e) {
+                Class<?> beanClass = Class.forName(beanClassName);
+                DeprecatedClass annotation = beanClass.getAnnotation(DeprecatedClass.class);
+                if (annotation != null){
+                    beanDefinition.setBeanClassName(annotation.newImpl().getName());
+                }
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
