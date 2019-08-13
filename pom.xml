@@ -53,6 +53,15 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.dukescript.api/javafx.base -->
+        <dependency>
+            <groupId>com.dukescript.api</groupId>
+            <artifactId>javafx.base</artifactId>
+            <version>8.60.11</version>
+        </dependency>
+
+
+
     </dependencies>
 
 </project>
