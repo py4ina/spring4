@@ -2,9 +2,11 @@ package com.javapapers.spring4;
 
 import com.javapapers.spring4.config.DevEmployeeConfig;
 import com.javapapers.spring4.config.EmployeeConfig;
+import com.javapapers.spring4.config.EmployeeDataSourceConfig;
 import com.javapapers.spring4.config.ProdEmployeeConfig;
 import com.javapapers.spring4.domain.Employee;
 import com.javapapers.spring4.service.EmployeeService;
+import com.javapapers.spring4.util.DataSource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,9 @@ import static junit.framework.TestCase.assertNotNull;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes= {EmployeeConfig.class,DevEmployeeConfig.class,ProdEmployeeConfig.class},loader=AnnotationConfigContextLoader.class)
+@ContextConfiguration(
+        classes= {EmployeeConfig.class, DevEmployeeConfig.class, ProdEmployeeConfig.class},
+        loader=AnnotationConfigContextLoader.class)
 @ActiveProfiles(value="dev")
 public class Spring3DevProfilesTest {
     @Autowired
@@ -28,11 +32,13 @@ public class Spring3DevProfilesTest {
 
     @Test
     public void testDevDataSource() {
-        EmployeeService service = (EmployeeService)applicationContext.getBean("employeeService");
+        EmployeeService service = (EmployeeService) applicationContext.getBean("employeeService");
         assertNotNull(service);
         List<Employee> employeeDetails = service.getEmployeeDetails();
         assertEquals(2, employeeDetails.size());
         assertEquals("Abc", employeeDetails.get(0).getName());
         assertEquals("Xyz", employeeDetails.get(1).getName());
+
+//        DataSource dataSource = (DataSource) applicationContext.getBean("dataSource");
     }
 }
