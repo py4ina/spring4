@@ -18,9 +18,4 @@ public class AppConfig {
     public SingletonBean singletonBean(){
         return new SingletonBean();
     }
-
-//    @Bean
-//    public SingletonAppContextBean singletonAppContextBean(){
-//        return new SingletonAppContextBean();
-//    }
 }

@@ -6,18 +6,22 @@ class Main {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-//        context.con
 
-        SingletonBean firstSingleton = context.getBean(SingletonBean.class);
-        PrototypeBean firstPrototype = firstSingleton.getPrototypeBean();
-//        PrototypeBean firstPrototype = context.getPrototypeBean();
+        SingletonAppContextBean singletonAppContextBean = new SingletonAppContextBean();
+        singletonAppContextBean.setApplicationContext(context);
 
-        SingletonBean secondSingleton = context.getBean(SingletonBean.class);
-        PrototypeBean secondPrototype = secondSingleton.getPrototypeBean();
-//        PrototypeBean secondPrototype = context.getPrototypeBean();
+//        SingletonBean firstSingleton = context.getBean(SingletonBean.class);
+//        PrototypeBean firstPrototype = firstSingleton.getPrototypeBean();
+//
+//        SingletonBean secondSingleton = context.getBean(SingletonBean.class);
+//        PrototypeBean secondPrototype = secondSingleton.getPrototypeBean();
 
-        System.out.println("firstPrototype == secondPrototype : " + firstPrototype.equals(secondPrototype));
-        System.out.println("firstSingleton == secondSingleton : " + firstSingleton.equals(secondSingleton));
+//        System.out.println("firstPrototype == secondPrototype : " + firstPrototype.equals(secondPrototype));
+//        System.out.println("firstSingleton == secondSingleton : " + firstSingleton.equals(secondSingleton));
+
+        PrototypeBean firstPrototype = singletonAppContextBean.getPrototypeBean();
+        PrototypeBean secondPrototype = singletonAppContextBean.getPrototypeBean();
+        System.out.println(firstPrototype.equals(secondPrototype));
 
     }
 }

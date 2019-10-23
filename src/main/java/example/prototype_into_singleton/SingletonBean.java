@@ -13,7 +13,6 @@ class SingletonBean {
     }
 
     public PrototypeBean getPrototypeBean(){
-//        System.out.println("Prototype instance created");
         System.out.println(String.valueOf(LocalTime.now()));
         return prototypeBean;
     }
